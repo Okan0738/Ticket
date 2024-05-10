@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -18,10 +16,6 @@ public class UserController {
 
     model.addAttribute("user", new UserDTO());
 
-
-    model.addAttribute("roles", new ArrayList<UserDTO>());
-
-
-        return "/user/create";
+        return "user/create";
     }
 }
