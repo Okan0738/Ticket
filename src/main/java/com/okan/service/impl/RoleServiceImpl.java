@@ -5,26 +5,24 @@ import com.okan.service.RoleService;
 
 import java.util.List;
 
-public abstract class RoleServiceImpl extends AbstractMapService<RoleDTO, Long> implements RoleService {
-
+public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
     @Override
     public RoleDTO save(RoleDTO role) {
-        return null;
+        return super.save(role.getId(), role);
     }
 
     @Override
-    public void deleteById(Long username) {
-
+    public RoleDTO findById(Long id) {
+        return super.findById(id);
     }
-/*
-    @Override
-    public T findById(ID username) {
-        return null;
-    }
- */
 
     @Override
     public List<RoleDTO> findAll() {
-        return List.of();
+        return super.findAll();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+                super.deleteByID(id);
     }
 }
