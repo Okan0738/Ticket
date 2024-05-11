@@ -2,9 +2,11 @@ package com.okan.service.impl;
 
 import com.okan.dto.RoleDTO;
 import com.okan.service.RoleService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
     @Override
     public RoleDTO save(RoleDTO role) {
