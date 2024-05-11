@@ -29,4 +29,11 @@ public class UserController {
 
         return "user/create";
     }
+
+    public String createUser2(Model model) {
+
+        model.addAttribute("roles", roleService.findAll());
+
+        return "user/create";
+    }
 }

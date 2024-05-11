@@ -38,7 +38,7 @@ public class DataGenerator implements CommandLineRunner {
         UserDTO user2= new UserDTO("Kaan","Celik","kaancelik@gmail.com",
                 "Ka.clk07",true,"123456789987",employeeRole, Gender.MALE);
         UserDTO user3= new UserDTO("Belinay","Celik","belinaycelik@gmail.com",
-                "Beli07",true,"123456789987",adminRole, Gender.MALE);
+                "Beli07",true,"123456789987",adminRole, Gender.FEMALE);
         UserDTO user4= new UserDTO("Kim","Celik","kimcelik@gmail.com",
                 "Kmclk123",true,"123456789987",managerRole, Gender.FEMALE);
         UserDTO user5= new UserDTO("Ahmet","Doguc","ahmetdoguc@gmail.com",
@@ -46,9 +46,9 @@ public class DataGenerator implements CommandLineRunner {
         UserDTO user6= new UserDTO("jessica","Doguc","jesidoguc@gmail.com",
                 "Jes123",true,"123456789987",employeeRole, Gender.FEMALE);
         UserDTO user7= new UserDTO("Lia","Doguc","liadgc@gmail.com",
-                "lia1234",true,"123456789987",employeeRole, Gender.MALE);
+                "lia1234",true,"123456789987",employeeRole, Gender.FEMALE);
         UserDTO user8= new UserDTO("elisa","paulman","elisaplm@gmail.com",
-                "els123",true,"123456789987",employeeRole, Gender.MALE);
+                "els123",true,"123456789987",employeeRole, Gender.FEMALE);
 
         userService.save(user1);
         userService.save(user2);
