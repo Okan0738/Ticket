@@ -34,21 +34,21 @@ public class DataGenerator implements CommandLineRunner {
 
 
         UserDTO user1= new UserDTO("Okan","Celik","okancelik@gmail.com",
-                "Clk07",true,"876543567889987",adminRole, Gender.MALE);
+                "clk07",true,"876543567889987",managerRole, Gender.MALE);
         UserDTO user2= new UserDTO("Kaan","Celik","kaancelik@gmail.com",
-                "Ka.clk07",true,"123456789987",employeeRole, Gender.MALE);
+                "ka.clk07",true,"123456789987",employeeRole, Gender.MALE);
         UserDTO user3= new UserDTO("Belinay","Celik","belinaycelik@gmail.com",
-                "Beli07",true,"123456789987",adminRole, Gender.FEMALE);
-        UserDTO user4= new UserDTO("Kim","Celik","kimcelik@gmail.com",
-                "Kmclk123",true,"123456789987",managerRole, Gender.FEMALE);
-        UserDTO user5= new UserDTO("Ahmet","Doguc","ahmetdoguc@gmail.com",
-                "Dgc123",true,"123456789987",managerRole, Gender.MALE);
-        UserDTO user6= new UserDTO("jessica","Doguc","jesidoguc@gmail.com",
-                "Jes123",true,"123456789987",employeeRole, Gender.FEMALE);
-        UserDTO user7= new UserDTO("Lia","Doguc","liadgc@gmail.com",
-                "lia1234",true,"123456789987",employeeRole, Gender.FEMALE);
-        UserDTO user8= new UserDTO("elisa","paulman","elisaplm@gmail.com",
-                "els123",true,"123456789987",employeeRole, Gender.FEMALE);
+                "beli07",true,"123456789987",adminRole, Gender.FEMALE);
+        UserDTO user4= new UserDTO("Filiz","Celik","filizcelik@gmail.com",
+                "flzclk123",true,"123456789987",employeeRole, Gender.FEMALE);
+        UserDTO user5= new UserDTO("Önder","celik","ondercelik@gmail.com",
+                "onder123",true,"123456789987",managerRole, Gender.MALE);
+        UserDTO user6= new UserDTO("Tahir","Celik","tahircelik@gmail.com",
+                "tahir123",true,"123456789987",employeeRole, Gender.MALE);
+        UserDTO user7= new UserDTO("Irfan","Er","irfaner@gmail.com",
+                "irfan1234",true,"123456789987",employeeRole, Gender.MALE);
+        UserDTO user8= new UserDTO("Ozgur","Azcan","ozgurazcan@gmail.com",
+                "ozgur123",true,"123456789987",employeeRole, Gender.MALE);
 
         userService.save(user1);
         userService.save(user2);
