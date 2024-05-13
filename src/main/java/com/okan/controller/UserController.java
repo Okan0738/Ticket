@@ -1,15 +1,11 @@
 package com.okan.controller;
 
-import com.okan.dto.RoleDTO;
 import com.okan.dto.UserDTO;
-import com.okan.service.OkanService;
 import com.okan.service.RoleService;
 import com.okan.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/user")
@@ -58,4 +54,13 @@ public class UserController {
 
         return "user/update";
     }
+
+    @PostMapping("/update")
+    public String updateUser(@ModelAttribute("user") UserDTO user, Model model) {
+
+        userService.save(user);
+
+        return "redirect:/user/create";
+    }
+
 }
