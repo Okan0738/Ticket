@@ -1,5 +1,7 @@
 package com.okan.service.impl;
 
+import com.okan.dto.ProjectDTO;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,7 +22,9 @@ public abstract class AbstractMapService <T, ID> {
     }
 
 
-  T findById(ID id) {
+    public abstract ProjectDTO save(ProjectDTO project);
+
+    T findById(ID id) {
         return map.get(id);
     }
 
@@ -32,4 +36,8 @@ public abstract class AbstractMapService <T, ID> {
     void update(ID id, T object) {
         map.put(id, object);
     }
+
+    public abstract void deleteById(String projectCode);
+
+    public abstract void update(ProjectDTO object);
 }

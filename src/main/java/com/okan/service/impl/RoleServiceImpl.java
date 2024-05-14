@@ -1,5 +1,6 @@
 package com.okan.service.impl;
 
+import com.okan.dto.ProjectDTO;
 import com.okan.dto.RoleDTO;
 import com.okan.service.RoleService;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,23 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
     }
 
     @Override
+    public void deleteById(String projectCode) {
+
+    }
+
+    @Override
+    public void update(ProjectDTO object) {
+
+    }
+
+    @Override
     public List<RoleDTO> findAll() {
         return super.findAll();
+    }
+
+    @Override
+    public ProjectDTO save(ProjectDTO project) {
+        return null;
     }
 
     @Override
@@ -31,6 +47,5 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
     @Override
     public void update(RoleDTO object) {
 
-        super.update(object.getId(), object);
     }
 }
