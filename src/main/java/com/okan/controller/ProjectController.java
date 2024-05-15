@@ -1,13 +1,12 @@
 package com.okan.controller;
 
 import com.okan.dto.ProjectDTO;
+import com.okan.enums.Status;
 import com.okan.service.ProjectService;
 import com.okan.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -31,4 +30,21 @@ public class ProjectController {
 
         return "project/create";
     }
+
+    @PostMapping("/create")
+    public String saveProject(@ModelAttribute("project") ProjectDTO project, Model model){
+
+        projectService.save(project);
+
+            return "redirect:/project/create";
+        }
+    @GetMapping("/delete/{projectCode}")
+    public String deleteUser(@PathVariable("projectCode") String projectCode) {
+
+        projectService.deleteById(projectCode);
+
+        return "redirect:/project/create";
+    }
+
+
 }

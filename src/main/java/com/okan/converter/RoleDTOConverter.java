@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class RoleDTOConverter implements Converter< String,RoleDTO> {
 
     RoleService roleService;
+
     public RoleDTOConverter(RoleService roleService) {
         this.roleService = roleService;
     }

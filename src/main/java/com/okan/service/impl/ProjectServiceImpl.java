@@ -1,6 +1,7 @@
 package com.okan.service.impl;
 import com.okan.dto.ProjectDTO;
 import com.okan.dto.UserDTO;
+import com.okan.enums.Status;
 import com.okan.service.ProjectService;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -10,11 +11,16 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
 
     @Override
     public ProjectDTO save(ProjectDTO project) {
+
+        if(project.getStatus()==null) {
+            project.setStatus(Status.OPEN);
+        }
         return super.save(project.getProjectCode(),project);
     }
 
     @Override
     public ProjectDTO findById(String projectCode) {
+
         return super.findById(projectCode);
     }
 
@@ -33,6 +39,7 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
 
     @Override
     public void deleteById(String projectCode) {
+
         super.deleteById(projectCode);
     }
 
@@ -46,4 +53,7 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
     public List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
         return List.of();
     }
+
+
+
 }
