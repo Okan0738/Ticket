@@ -1,17 +1,17 @@
 package com.okan.service.impl;
 
-import com.okan.dto.ProjectDTO;
 import com.okan.dto.RoleDTO;
 import com.okan.service.RoleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service  //like @Component - creates bean
 public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
+
     @Override
     public RoleDTO save(RoleDTO role) {
-        return super.save(role.getId(), role);
+        return super.save(role.getId(),role);
     }
 
     @Override
@@ -20,32 +20,18 @@ public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements
     }
 
     @Override
-    public void deleteById(String projectCode) {
-
-    }
-
-    @Override
-    public void update(ProjectDTO object) {
-
-    }
-
-    @Override
     public List<RoleDTO> findAll() {
         return super.findAll();
     }
 
     @Override
-    public ProjectDTO save(ProjectDTO project) {
-        return null;
-    }
-
-    @Override
     public void deleteById(Long id) {
-                super.deleteByID(id);
+        super.deleteById(id);
     }
 
     @Override
     public void update(RoleDTO object) {
-
+        super.update(object.getId(), object);
     }
+
 }
