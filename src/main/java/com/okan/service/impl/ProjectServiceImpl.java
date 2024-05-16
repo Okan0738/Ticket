@@ -5,6 +5,7 @@ import com.okan.enums.Status;
 import com.okan.service.ProjectService;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> implements ProjectService {
@@ -33,6 +34,10 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
     @Override
     public void update(ProjectDTO object) {
 
+        if(object.getStatus()==null) {
+            object.setStatus(findById(object.getProjectCode()).getStatus());
+        }
+
         super.update(object.getProjectCode(),object);
 
     }
@@ -43,17 +48,19 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
         super.deleteById(projectCode);
     }
 
-
-
     @Override
     public void complete(ProjectDTO project) {
-
+        project.setStatus(Status.COMPLETED);
     }
     @Override
     public List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
+
+        List<ProjectDTO> projectList=
+                findAll()
+                        .stream()
+                        .filter(project -> project.getAssignedManager().equals(manager))
+                        .collect(Collectors.toList());
         return List.of();
     }
-
-
 
 }

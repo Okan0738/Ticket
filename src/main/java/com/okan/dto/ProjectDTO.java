@@ -18,9 +18,9 @@ public class ProjectDTO extends RoleDTO {
     private String projectName;
     private String projectCode;
     private UserDTO assignedManager;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yy-MM-dd")
     private LocalDate startDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yy-MM-dd")
     private LocalDate endDate;
     private String projectDetail;
     private Status status;
