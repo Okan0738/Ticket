@@ -1,6 +1,7 @@
 package com.okan.service.impl;
 
 import com.okan.dto.TaskDTO;
+import com.okan.dto.UserDTO;
 import com.okan.enums.Status;
 import com.okan.service.TaskService;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implements TaskService {
@@ -56,5 +58,14 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
 
         super.update(task.getId(), task);
+    }
+
+    /**
+     * @param manager
+     * @return
+     */
+    @Override
+    public List<TaskDTO> findTasksByManager(UserDTO manager) {
+        return findAll().stream().filter(task->task.getProject().getAssignedManager().equals(manager)).collect(Collectors.toList());
     }
 }
