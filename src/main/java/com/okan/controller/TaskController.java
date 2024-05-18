@@ -1,6 +1,7 @@
 package com.okan.controller;
 
 import com.okan.dto.TaskDTO;
+import com.okan.enums.Status;
 import com.okan.service.ProjectService;
 import com.okan.service.TaskService;
 import com.okan.service.UserService;
@@ -102,6 +103,50 @@ public class TaskController {
         return "redirect:/task/create";
 
     }
+    @GetMapping("/employee/pending-tasks")
+    public String employeePendingTasks(Model model) {
 
+        model.addAttribute("tasks", taskService.findAllTasksByStatusIsNot(Status.COMPLETED));
+
+        return "/task/pending-tasks";
+    }
+
+
+    @GetMapping("/employee/archive")
+    public String employeeArchive(Model model) {
+
+        model.addAttribute("tasks", taskService.findAllTasksByStatus(Status.COMPLETED));
+
+        return "/task/archive";
+    }
+
+    @GetMapping("/employee/edit/{Id}")
+    public String employeeEdit(@PathVariable("Id") Long Id, Model model) {
+
+        model.addAttribute("task", taskService.findById(Id));
+        model.addAttribute("projects", projectService.findAll());
+        model.addAttribute("employees", userService.findEmployees());
+        model.addAttribute("tasks", taskService.findAllTasksByStatusIsNot(Status.COMPLETED));
+        model.addAttribute("statuses", Status.values());
+        return "/task/status-update";
+    }
+
+    @PostMapping("/task/employee/update/{id}")
+    public String employeeUpdateTask(@Valid @ModelAttribute("task") TaskDTO task, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+
+            model.addAttribute("statuses", Status.values());
+            model.addAttribute("tasks", taskService.findAllTasksByStatusIsNot(Status.COMPLETED));
+
+            return "/task/status-update";
+
+        }
+
+        taskService.updateStatus(task);
+
+        return "redirect:/task/employee/pending-tasks";
+
+    }
 
 }
